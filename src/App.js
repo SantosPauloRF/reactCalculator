@@ -9,14 +9,21 @@ function App() {
     setResult(result.concat(e.target.name));
   }
 
+  const handleClear = () =>{
+    setResult("")
+  }
+  const handleDel = () =>{
+    setResult(result.slice(0, result.length - 1))
+  }
+
   return (
     <div className="container">
       <form>
         <input className='current-operand output' type={"text"} value={result} />
       </form>
       <div className='buttons'>
-        <button className='ac span-two' onClick={handleClick}>AC</button>
-        <button onClick={handleClick}>Del</button>
+        <button className='ac span-two' onClick={handleClear}>AC</button>
+        <button onClick={handleDel}>Del</button>
         <button name="/" onClick={handleClick}>&divide;</button>
         <button name="7" onClick={handleClick}>7</button>
         <button name="8" onClick={handleClick}>8</button>
