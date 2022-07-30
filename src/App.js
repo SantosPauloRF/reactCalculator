@@ -16,6 +16,14 @@ function App() {
     setResult(result.slice(0, result.length - 1))
   }
 
+  const handleCalculate = () =>{
+    try{
+      setResult(eval(result).toString())
+    }catch(err){
+      setResult("SYNTAX ERROR")
+    }
+  }
+
   return (
     <div className="container">
       <form>
@@ -39,7 +47,7 @@ function App() {
         <button name="+" onClick={handleClick}>+</button>
         <button name="0" onClick={handleClick}>0</button>
         <button name="" onClick={handleClick}>.</button>
-        <button className='span-two' onClick={handleClick}>=</button>
+        <button className='span-two' onClick={handleCalculate}>=</button>
       
       </div>
     </div>
